@@ -1,4 +1,5 @@
 ﻿open System
+open System.Configuration
 open System.Data
 
 open LinqToDB
@@ -7,6 +8,9 @@ open LinqToDB.Mapping
 
 open ClaimStatusModel
 open LinqToDB.DataProvider.SQLite
+
+// Learn more about F# at http://fsharp.org
+// See the 'F# Tutorial' project for more help.
 
 
 let BuildTable<'T> (schema :SchemaProvider.DatabaseSchema) (db : DataConnection) =
@@ -19,7 +23,7 @@ let BuildTable<'T> (schema :SchemaProvider.DatabaseSchema) (db : DataConnection)
 
 [<EntryPoint>]
 let main argv = 
-    let connString = @"Data Source=\\\\server\\path\\DB\\emptydb"
+    let connString = ConfigurationManager.ConnectionStrings.["AppStore"].ConnectionString;
     let provider = SQLiteDataProvider()
     use db = new DataConnection( provider, connString )
     let schema = provider.GetSchemaProvider().GetSchema(db)
