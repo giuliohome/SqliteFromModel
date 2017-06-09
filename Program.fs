@@ -9,10 +9,6 @@ open LinqToDB.Mapping
 open ClaimStatusModel
 open LinqToDB.DataProvider.SQLite
 
-// Learn more about F# at http://fsharp.org
-// See the 'F# Tutorial' project for more help.
-
-
 let BuildTable<'T> (schema :SchemaProvider.DatabaseSchema) (db : DataConnection) =
     let tableName = db.MappingSchema.GetEntityDescriptor(typeof<'T>).TableName
     if schema.Tables.Exists(fun t -> t.TypeName.Contains(tableName))
