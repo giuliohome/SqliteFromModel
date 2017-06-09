@@ -8,9 +8,6 @@ open LinqToDB.Mapping
 open ClaimStatusModel
 open LinqToDB.DataProvider.SQLite
 
-// Learn more about F# at http://fsharp.org
-// See the 'F# Tutorial' project for more help.
-
 
 let BuildTable<'T> (schema :SchemaProvider.DatabaseSchema) (db : DataConnection) =
     let tableName = db.MappingSchema.GetEntityDescriptor(typeof<'T>).TableName
@@ -22,7 +19,7 @@ let BuildTable<'T> (schema :SchemaProvider.DatabaseSchema) (db : DataConnection)
 
 [<EntryPoint>]
 let main argv = 
-    let connString = @"Data Source=\\\\wpws08226393\\reports\\ClaimStatus\\emptydb"
+    let connString = @"Data Source=\\\\server\\path\\DB\\emptydb"
     let provider = SQLiteDataProvider()
     use db = new DataConnection( provider, connString )
     let schema = provider.GetSchemaProvider().GetSchema(db)
