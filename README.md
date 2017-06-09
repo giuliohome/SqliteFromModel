@@ -8,5 +8,5 @@ This is not avoiding boilerplate code but losing a feature
 
 ## Solution
 
-The simple console program shows an utility to create SQLite tables from their Model types, with Linq2DB mapping annotations.
+The simple console program shows an [utility](https://github.com/giuliohome/SqliteFromModel/blob/master/Program.fs#L12) to create SQLite tables from their Model types, with Linq2DB mapping annotations.
 
